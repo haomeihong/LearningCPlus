@@ -14,7 +14,15 @@ int fun1(int n){
 	}
 	return result;
 } 
-
+//¾­µä½â·¨
+int fun(int n){
+	int result=0;
+	while(n){
+		result++;
+		n=n&(n-1);
+	}
+	return result;
+} 
 int main(int len,char * arg[]){
 //int n;
 //cin>>n;
