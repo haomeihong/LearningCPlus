@@ -1,39 +1,23 @@
 #include<iostream>
 using namespace std;
-//通过除法计算 
-//注意正数和负数的取余运算是保留符号的 
-int fun(int n){
+//正数和负数的二进制表示不一样，负数采用反码存储 ，负数越小，1越多 
+//常规解法
+//不用管输入数字的正负，通过定与运算的另一操作数来实现 
+int fun1(int n){
 	int result=0;
-	if(n<0){
-		result=1;
-		n=-n;
-	}
-	while(n!=0){
-		if(n%2==1){
+	unsigned int f=1;
+	while(f){
+		if(f&n){
 			result++;
 		}
-		n=n/2;
-	} 
-	return result;
-}
-//通过移位计算 
-int fun2(int n){
-	int result=0;
-	if(n<0){
-		result=1;
-		n=-n;
+		f<<=1;
 	}
-	while(n!=0){
-		if(n%2==1){
-			result++;
-		}
-		n>>=1;
-	} 
 	return result;
-}
+} 
+
 int main(int len,char * arg[]){
 //int n;
 //cin>>n;
-cout<<fun(-9)<<endl;
+cout<<fun1(-1)<<endl;
 return 0;	
 }
